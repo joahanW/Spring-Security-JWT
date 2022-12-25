@@ -46,7 +46,7 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(STATELESS)
                 .and()
                 .authorizeRequests()
-                .antMatchers("/api/login/**").permitAll()
+                .antMatchers("/api/login/**", "/api/token/refresh/**").permitAll()
                 .antMatchers(HttpMethod.GET,"/api/user/**").hasAnyAuthority("ROLE_USER")
                 .antMatchers(HttpMethod.POST,"/api/user/save/**").hasAnyAuthority("ROLE_ADMIN")
                 .antMatchers(HttpMethod.POST,"/api/user/save/**").hasAnyAuthority("ROLE_ADMIN")
